@@ -2,6 +2,10 @@
 
 echo 'Script made by NQ'
 
+DIR_NAME=".kube"
+USER_HOME=$(eval echo ~$SUDO_USER)
+TARGET_DIR="$USER_HOME/$DIR_NAME"
+
 if [ "$(id -u)" -ne 0 ]; then 
     echo "Please run the script as root (sudo)"
     exit 1
@@ -31,8 +35,8 @@ if [ "$(dpkg -l | awk '/docker-ce/ {print }' | wc -l)" -ge 1 ]; then
     curl -sfL https://get.k3s.io | sh -s - --write-kubeconfig-mode 644 --node-name "$(hostname)"
 
     echo 'Doing some pre-config'
-    mkdir -p ~/.kube
-    cp /etc/rancher/k3s/k3s.yaml ~/.kube/config
+    mkdir $TARGET_DIR
+    cp /etc/rancher/k3s/k3s.yaml $TARGET_DIR/config
 
     echo 'Check if k3s is installed correctly'
     systemctl status k3s

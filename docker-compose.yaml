@@ -4,25 +4,11 @@ services:
     image: noahquint/dashboardism
     container_name: dashboardism
     ports: ["10.0.2.132:8081:8081"]
-    # ports: ["8081:8081"]
     environment:
-    # Put the URL to reach the restservice here (including port, ex: baseurl=microservism:5000)
       - baseurl=microservism:5000
-    
-    # volumes: [/var/run/docker.sock:/var/run/docker.sock]  # Nodig om containers/images aan te kunnen spreken
-#  restart: unless-stopped
-
-#  dashboardphp:
-#    image: php:apache
-#    container_name: dashboardphp
-#    depends_on: [dashboardism]
-#    ports: ["10.0.2.132:8081:80"]
- #   volumes: [./dashboard.php:/var/www/html/index.php]  # Laadt jouw PHP-bestand als startpagina
-#      restart: unless-stopped
-
+    #volumes: [/var/run/docker.sock:/var/run/docker.sock]  # Nodig om containers/images aan te kunnen spreken
   microservism:
     image: noahquint/microservism
     container_name: microservism
     ports: ["5000:5000"]
     volumes: [/var/run/docker.sock:/var/run/docker.sock]  # Nodig om containers/images aan te kunnen spreken
-#      restart: unless-stopped

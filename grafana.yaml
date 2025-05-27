@@ -50,7 +50,7 @@ data:
       name: Prometheus
       orgId: 1
       type: prometheus
-      url: http://prometheus:9090
+      url: http://10.3.1.17:9090
     - access: proxy
       editable: true
       isDefault: false

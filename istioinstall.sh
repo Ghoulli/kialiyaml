@@ -5,7 +5,7 @@ K3S_BINARY="/usr/local/bin/k3s"
 
 if [ -x "$K3S_BINARY" ]; then
 	curl -L https://istio.io/downloadIstio | sh -
-	cd istio-1.25.1
+	cd istio-1.26.0
 	export PATH=$PWD/bin:$PATH
 	istioctl install -f samples/bookinfo/demo-profile-no-gateways.yaml -y
 	kubectl label namespace default istio-injection=enabled

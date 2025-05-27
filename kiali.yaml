@@ -121,8 +121,7 @@ data:
         enabled: false
       grafana:
         enabled: true
-        internal_url: 'http://grafana.istio-system.svc:3000'
-        external_url: 'http://10.0.2.150:30002'
+        external_url: 'http://10.3.1.17:3000'
         health_check_url: ""
         dashboards:
           - name: "Istio Service Dashboard"

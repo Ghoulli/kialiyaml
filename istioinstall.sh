@@ -15,7 +15,7 @@ if [ -x "$K3S_BINARY" ]; then
 	kubectl apply -f samples/bookinfo/gateway-api/bookinfo-gateway.yaml
 	kubectl port-forward svc/bookinfo-gateway-istio 8080:80
 	curl https://raw.githubusercontent.com/Ghoulli/kialiyaml/refs/heads/main/kiali.yaml | tee samples/addons/kiali.yaml #Curling a working kiali.yaml file from my own Github repo. Easiest way to fix the issue is to just get rid of the old file and replace it with mine.
-	curl https://raw.githubusercontent.com/Ghoulli/kialiyaml/refs/heads/main/grafana.yaml | tee samples/addions/grafana.yaml
+	curl https://raw.githubusercontent.com/Ghoulli/kialiyaml/refs/heads/main/grafana.yaml | tee samples/addons/grafana.yaml
 	kubectl apply -f samples/addons
 	kubectl rollout status deployment/kiali -n istio-system
 	istioctl dashboard kiali
